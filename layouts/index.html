@@ -155,6 +155,52 @@
 
 <!--
 
+  ______       _                          _     _
+ |  ____|     | |                        | |   (_)
+ | |__      __| |  _   _    ___    __ _  | |_   _    ___    _ __
+ |  __|    / _` | | | | |  / __|  / _` | | __| | |  / _ \  | '_ \
+ | |____  | (_| | | |_| | | (__  | (_| | | |_  | | | (_) | | | | |
+ |______|  \__,_|  \__,_|  \___|  \__,_|  \__| |_|  \___/  |_| |_|
+
+
+
+-->
+{{ if .Site.Data.homepage.education.enable }}
+<!-- education -->
+<section class="uk-margin-xlarge-bottom">
+    <div class="uk-container">
+
+        <h1 class="uk-heading-line uk-heading-medium  uk-margin-large-bottom"><span>Education</span></h1>
+
+
+        <div class=" uk-grid-large uk-child-width-1-3@s uk-child-width-1  uk-text-center uk-flex-center" uk-grid
+            style="padding-left: 20px; padding-right: 20px">
+
+            {{ range .Site.Data.homepage.education.item }}
+            <div>
+                <div class="uk-card uk-card-default uk-height-max-large">
+                    <div class="uk-card-media-top">
+                        <img class="contain experience" src="{{.image}}" alt="" style="padding: 20px" loading="lazy">
+                    </div>
+                    <div class="uk-card-body" style="padding-top: 0">
+                        <div style="height: 5em">
+                            <h3 class="uk-card-title">{{.academy}}</h3>
+                        </div>
+                        <p style="height: 4em">{{.title}}</p>
+                        <p>{{.year}}</p>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+
+
+
+
+
+<!--
+
    _____   _      _   _   _
   / ____| | |    (_) | | | |
  | (___   | | __  _  | | | |  ___
@@ -258,6 +304,54 @@
 <!-- ./experience -->
 
 
+<!-- CTF -->
+{{ if .Site.Data.homepage.ctf.enable }}
+
+<section class="uk-margin-large-bottom">
+    <div class="uk-container">
+        <h1 class="uk-heading-line uk-heading-medium "><span>CTF</span></h1>
+    </div>
+    <p class="uk-text-center uk-text-lead"><i>Hover over the logos to find out more</i></p>
+</section>
+<div class="uk-container uk-margin-large-bottom uk-text-center">
+    <ul id="hexGrid">
+        {{range .Site.Data.homepage.ctf.item}}
+        <li class="hex">
+            <div class="hexIn">
+                <div class="hexLink">
+                    <img src="{{.image}}" alt="{{.title}}" loading="lazy" />
+                    {{if eq .url "none"}}
+                    <div style="all:unset">
+
+                        <h1>
+                            {{.title}}</h1>
+                    </div>
+                    {{else}}
+                    <a href="{{.url}}" class="text unset">
+
+                        <h1>
+                            {{.title}}</h1>
+                    </a>
+
+                    {{end}}
+                    {{if eq .url "none"}}
+                    <div style="all:unset;font-size: 25px;">
+                        <p>
+                            {{.description}}</p>
+                    </div>
+                    {{else}}
+                    <a href="{{.url}}" class="text unset">
+                        <p>
+                            {{.description}}</p>
+                    </a>
+                    {{end}}
+                </div>
+            </div>
+        </li>
+        {{end}}
+    </ul>
+</div>
+{{end}}
 
 
 
@@ -376,49 +470,6 @@
     </ul>
 </div>
 {{end}}
-
-
-<!--
-
-  ______       _                          _     _
- |  ____|     | |                        | |   (_)
- | |__      __| |  _   _    ___    __ _  | |_   _    ___    _ __
- |  __|    / _` | | | | |  / __|  / _` | | __| | |  / _ \  | '_ \
- | |____  | (_| | | |_| | | (__  | (_| | | |_  | | | (_) | | | | |
- |______|  \__,_|  \__,_|  \___|  \__,_|  \__| |_|  \___/  |_| |_|
-
-
-
--->
-{{ if .Site.Data.homepage.education.enable }}
-<!-- education -->
-<section class="uk-margin-xlarge-bottom">
-    <div class="uk-container">
-
-        <h1 class="uk-heading-line uk-heading-medium  uk-margin-large-bottom"><span>Education</span></h1>
-
-
-        <div class=" uk-grid-large uk-child-width-1-3@s uk-child-width-1  uk-text-center uk-flex-center" uk-grid
-            style="padding-left: 20px; padding-right: 20px">
-
-            {{ range .Site.Data.homepage.education.item }}
-            <div>
-                <div class="uk-card uk-card-default uk-height-max-large">
-                    <div class="uk-card-media-top">
-                        <img class="contain experience" src="{{.image}}" alt="" style="padding: 20px" loading="lazy">
-                    </div>
-                    <div class="uk-card-body" style="padding-top: 0">
-                        <div style="height: 5em">
-                            <h3 class="uk-card-title">{{.academy}}</h3>
-                        </div>
-                        <p style="height: 4em">{{.title}}</p>
-                        <p>{{.year}}</p>
-                    </div>
-                </div>
-            </div>
-            {{ end }}
-        </div>
-    </div>
 
 
 
